@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Game</title>
+</head>
+<body>
+
+<script>
+// Simple JavaScript Quiz Game (Clean Version)
+
+const quiz = [
+  { question: "What is the capital of India?", answer: "Delhi" },
+  { question: "What programming language runs in a web browser (JavaScript/Java/Python)?", answer: "javascript" },
+  { question: "What keyword declares a constant in JavaScript?", answer: "const" },
+  { question: "What is the capital of haryana?", answer: "chandigarh" },
+  { question: "What is the capital of punjab?", answer: "chandigarh" },
+];
+
+let score = 0;
+
+alert("Welcome to the Quiz Game!");
+
+// Ask each question
+for (const [index, q] of quiz.entries()) {
+  const userInput = prompt(`${index + 1}. ${q.question}`);
+
+  if (userInput === null) {
+    alert("Quiz cancelled.");
+    break;
+  }
+
+  const cleaned = userInput.toLowerCase().trim();
+  const correct = q.answer.toLowerCase().trim();
+
+  if (cleaned === correct) {
+    alert("Correct!");
+    score++;
+  } else {
+    alert(`Incorrect! The correct answer is: ${q.answer}`);
+  }
+}
+
+alert(`Quiz finished!\nYour score: ${score} / ${quiz.length}`);
+</script>
+
+</body>
+</html>
